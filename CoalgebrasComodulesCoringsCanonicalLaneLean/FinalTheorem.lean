@@ -1,0 +1,19 @@
+import canonicalLaneMathlib.AdmissibleClass
+import HautevilleHouse.CoalgebrasComodulesCoringsCanonicalLaneLean.CoalgebraStructure
+import HautevilleHouse.CoalgebrasComodulesCoringsCanonicalLaneLean.ComoduleStructure
+import HautevilleHouse.CoalgebrasComodulesCoringsCanonicalLaneLean.CoringStructure
+import HautevilleHouse.CoalgebrasComodulesCoringsCanonicalLaneLean.MorphismStructure
+import HautevilleHouse.CoalgebrasComodulesCoringsCanonicalLaneLean.SweedlerNotation
+
+namespace HautevilleHouse
+namespace CoalgebrasComodulesCoringsCanonicalLaneLean
+
+def ConstrainedCoalgebraClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_coalgebra_endgame (A : AdmissibleClass) :
+    ConstrainedCoalgebraClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end CoalgebrasComodulesCoringsCanonicalLaneLean
+end HautevilleHouse
